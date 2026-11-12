@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Fixture Lab Blog</title>
+<entry><title>Researchers in Seoul publish open-source multimodal model for Korean</title>
+<link rel="alternate" href="https://lab.example/seoul-model"/>
+<published>2026-11-11T12:00:00Z</published>
+<summary>A university research team in South Korea released an open-weight multimodal language model trained on Korean text and speech.</summary></entry>
+</feed>

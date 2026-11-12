@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/">
+<channel><title>Fixture Tech Desk</title>
+<item><title>Kenyan hospitals deploy AI triage tool to cut emergency waiting times</title>
+<link>https://fixture.example/kenya-ai-triage?utm_source=rss</link>
+<description><![CDATA[<p>Hospitals in Nairobi have rolled out an artificial intelligence triage system that helps nurses prioritise patients, the health ministry said.</p>]]></description>
+<pubDate>Wed, 11 Nov 2026 09:00:00 GMT</pubDate></item>
+<item><title>Kenyan hospitals deploy AI triage tool to cut ER waiting times</title>
+<link>https://fixture.example/kenya-ai-triage-2</link>
+<description>Syndicated rewrite of the same story about AI triage in Nairobi hospitals.</description>
+<pubDate>Wed, 11 Nov 2026 10:00:00 GMT</pubDate></item>
+<item><title>Kenyan hospitals deploy AI triage tool to cut emergency waiting times</title>
+<link>https://www.fixture.example/kenya-ai-triage/</link>
+<description>Same URL, different tracking.</description>
+<pubDate>Wed, 11 Nov 2026 09:00:00 GMT</pubDate></item>
+<item><title>Paris startup raises €40 million Series B for AI coding agents</title>
+<link>https://fixture.example/paris-ai-startup</link>
+<description>The French company said the funding will expand its team of researchers building AI agents for software teams.</description>
+<pubDate>Tue, 10 Nov 2026 08:00:00 GMT</pubDate></item>
+<item><title>Local bakery wins best croissant award</title>
+<link>https://fixture.example/croissant</link>
+<description>Nothing to do with technology.</description>
+<pubDate>Tue, 10 Nov 2026 08:00:00 GMT</pubDate></item>
+<item><title>Undated AI story</title><link>https://fixture.example/undated</link><description>Machine learning news without a date.</description></item>
+</channel></rss>

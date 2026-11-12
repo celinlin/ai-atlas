@@ -1,0 +1,188 @@
+@import "tailwindcss";
+@import "@fontsource-variable/newsreader/opsz.css";
+@import "maplibre-gl/dist/maplibre-gl.css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg: #f8f8f5;
+  --surface: #ffffff;
+  --surface-2: #f1f1ec;
+  --ink: #171a21;
+  --ink-2: #3a3f49;
+  --muted: #737a84;
+  --border: #e7e9ed;
+  --border-strong: #d5d8de;
+  --accent: #365cf5;
+  --accent-ink: #ffffff;
+  --accent-soft: #eaeffe;
+  --accent-2: #1f3fc4;
+  --positive: #1f8a5b;
+  --warning: #a86a12;
+  --warning-soft: #fbf3e4;
+  /* map */
+  --map-ocean: #f8f8f5;
+  --map-land: #e9eae5;
+  --map-line: #ffffff;
+  --map-graticule: rgba(23, 26, 33, 0.05);
+  --shadow-panel: 0 1px 2px rgba(23, 26, 33, 0.04), 0 12px 40px -12px rgba(23, 26, 33, 0.16);
+}
+
+.dark {
+  --bg: #0d0f13;
+  --surface: #14171d;
+  --surface-2: #1a1e25;
+  --ink: #eceef1;
+  --ink-2: #c4c8cf;
+  --muted: #8a919b;
+  --border: #242932;
+  --border-strong: #323843;
+  --accent: #6d8bff;
+  --accent-ink: #0d0f13;
+  --accent-soft: #1a2240;
+  --accent-2: #9db0ff;
+  --positive: #4cc28f;
+  --warning: #e3a648;
+  --warning-soft: #2a2215;
+  --map-ocean: #0d0f13;
+  --map-land: #1d2129;
+  --map-line: #0d0f13;
+  --map-graticule: rgba(236, 238, 241, 0.05);
+  --shadow-panel: 0 1px 2px rgba(0, 0, 0, 0.3), 0 16px 48px -12px rgba(0, 0, 0, 0.6);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-muted: var(--muted);
+  --color-line: var(--border);
+  --color-line-strong: var(--border-strong);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-2: var(--accent-2);
+  --color-positive: var(--positive);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-serif: "Newsreader Variable", "Iowan Old Style", Georgia, serif;
+  --shadow-panel: var(--shadow-panel);
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+}
+::selection {
+  background: var(--accent-soft);
+  color: var(--ink);
+}
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+.font-display {
+  font-family: var(--font-serif);
+  font-optical-sizing: auto;
+  letter-spacing: -0.015em;
+}
+.eyebrow {
+  font-size: 0.6875rem;
+  line-height: 1rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--muted);
+}
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+.scrollbar-none {
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* MapLibre refinements */
+.maplibregl-map {
+  font: inherit;
+}
+.maplibregl-ctrl-attrib {
+  font-size: 10px;
+  background: color-mix(in srgb, var(--surface) 80%, transparent) !important;
+  color: var(--muted);
+}
+.maplibregl-ctrl-attrib a {
+  color: var(--muted) !important;
+}
+.maplibregl-canvas:focus-visible {
+  outline: none;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.animate-fade-up {
+  animation: fade-up 0.5s var(--ease-out-soft) both;
+}
+@keyframes shimmer {
+  0% {
+    background-position: -400px 0;
+  }
+  100% {
+    background-position: 400px 0;
+  }
+}
+.skeleton {
+  background: linear-gradient(90deg, var(--surface-2) 0, var(--border) 40%, var(--surface-2) 80%);
+  background-size: 800px 100%;
+  animation: shimmer 1.4s linear infinite;
+  border-radius: 6px;
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Full-screen app views (the Explore map) fill the viewport below the header. */
+body:has([data-fullscreen]) {
+  height: 100dvh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+body:has([data-fullscreen]) > main,
+body:has([data-fullscreen]) #main {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
